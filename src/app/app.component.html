@@ -17,13 +17,30 @@
       <button type="button" class="btn btn-dark">SIGN UP</button>
     </div>
   </header>
-  <app-starships></app-starships>
-
-
+  <nav>
+    <ul class="nav nav-underline pt-5 justify-content-center text-white border-top border-bottom border-light-subtle">
+    <li class="nav-item">
+      <a class="nav-link text-white fs-5"
+        routerLink="app-home" routerLinkActive ="active" ariaCurrentWhenActive ="page">
+        HOME
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white fs-5" 
+      routerLink="/app-starships" routerLinkActive ="active" ariaCurrentWhenActive ="page">
+        STARSHIPS
+      </a>
+    </li>
+  </ul>
+  </nav>
 
 <router-outlet></router-outlet>
+
 </body>
 </html>
+
+
+
 
  <!--
 SEMANTIC TAGS (construct more correct structure of the site, but ued not often, 

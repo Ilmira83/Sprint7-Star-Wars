@@ -1,9 +1,11 @@
-import { Component, effect, HostListener, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { StarshipqueryService } from './services/starshipquery.service';
 
 @Component({
   selector: 'app-starships',
-  imports: [],
+  imports: [RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './starships.component.html',
   styleUrl: './starships.component.css'
 })

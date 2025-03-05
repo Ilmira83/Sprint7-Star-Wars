@@ -2,6 +2,7 @@ import { Injectable, signal } from '@angular/core';
 interface Starships{
   name:string,
   model:string
+  manufacture:string
 }
 @Injectable({
   providedIn: 'root'

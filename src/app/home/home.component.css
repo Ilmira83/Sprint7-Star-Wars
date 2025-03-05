@@ -1,0 +1,9 @@
+html, body{
+  background-color: rgb(14, 14, 14);
+  color: white;
+}
+.filmsList{
+  background-color: rgb(14, 14, 14);
+  color: white;
+  min-height: 100vh
+}
