@@ -1,0 +1,30 @@
+
+<ul class="nav nav-underline pt-5 justify-content-center text-white border-top border-bottom border-light-subtle">
+  <li class="nav-item">
+    <a class="nav-link text-white active fs-5" aria-current="page" href="#">HOME</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white fs-5" href="#">STARSHIPS</a>
+  </li>
+</ul>
+<main class="shiplist">
+  @for(ship of starshipsList(); track ship){
+  <div class="d-flex text-center justify-content-center pt-5">
+    <div class="d-grid text-start col-5 bg-dark p-3">
+      <h3>
+        {{ship.name}}
+      </h3>
+      <h5 class="mt-2">
+        {{ship.model}}
+      </h5>
+      
+    </div>
+   
+  </div>
+  }
+  <div class="d-flex justify-content-center pt-5">
+    <button type="button" class="btn btn-dark" (click)="nexPage()">Next page</button>
+  </div>
+
+</main>
+
