@@ -6,25 +6,26 @@
   <title>Document</title>
 </head>
 <body>
-  
+
   <main class="shiplist">
-    @for(ship of starshipsList(); track ship){
-    <div class="d-flex text-center justify-content-center pt-5">
-      <div class="d-grid text-start col-5 bg-dark p-3">
-        <h3>
+    @for(ship of starshipsList(); track ship; let i = $index){
+    <ul class="d-flex text-center justify-content-center pt-5">
+      <li class="d-grid text-start col-5 bg-dark p-3">
+        <a class="shipname fs-4 text-white fw-bold" style="font-family: 'Courier New', Courier, monospace"
+        [routerLink]="['/starships', getShipID(i)]" routerLinkActive ="active" ariaCurrentWhenActive ="page">
           {{ship.name}}
-        </h3>
-        <h5 class="mt-2">
+        </a>
+        <a class="mt-2 fs-5 text-white text-decoration-none" style="font-family: 'Courier New', Courier, monospace">
           {{ship.model}}
-        </h5>
-      </div>
-    </div>
+        </a>
+      </li>
+    </ul>
     }
     <div class="d-flex justify-content-center pt-5">
-      <button type="button" class="btn btn-dark" (click)="nexPage()">Next page</button>
+      <button type="button" class="btn btn-dark" (click)="nexPage()">View more</button>
     </div>
   </main>
-
+ 
 </body>
 </html>
 

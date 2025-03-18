@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
@@ -6,7 +6,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-home',
   imports: [CommonModule ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
+ 
 })
 export class HomeComponent {
 

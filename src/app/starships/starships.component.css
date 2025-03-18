@@ -3,3 +3,8 @@
   color: white;
   min-height: 100vh
 }
+.shipname:hover {
+  cursor: pointer;
+  font-size: 32px !important;
+  text-decoration: underline;
+}

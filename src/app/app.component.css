@@ -2,3 +2,12 @@ html, body{
   background-color: rgb(14, 14, 14);
   color: white;
 }
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.social-links:hover{
+  cursor: pointer;
+}
