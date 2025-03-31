@@ -2,10 +2,10 @@
   <button
     type="button"
     class="btn-close btn-lg bg-white text-black"
-    (click)="closeModal()"
+    (click)="closeLoginForm()"
   ></button>
 </div>
-<div class="modal modal-fullscreen" #myModal class="registration-form">
+<div class="registration-form"#myModal>
   <form class="form-group" [formGroup]="form">
     <div class="col g-3 align-items-center">
       <div class="form-header col-auto text-start">
@@ -107,3 +107,7 @@
     </footer>
   </form>
 </div>
+
+
+
+

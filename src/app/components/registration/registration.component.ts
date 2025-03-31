@@ -22,7 +22,7 @@ export class RegistrationComponent {
   user = signal<UserInterface | null>(null);
 
   @ViewChild('myModal') modal: ElementRef | undefined;
-
+ 
 
   constructor(private fb: FormBuilder){
     this.form = this.fb.group({
@@ -67,29 +67,15 @@ export class RegistrationComponent {
     this.authService.logIn(this.form.value.email, this.form.value.password)
     .then(() => {
       this.authService.loggedIn.set(true);
-      this.closeModal()
+      this.closeLoginForm()
     })
     .catch(()=> alert('Log in failed: invalid e-mail '));
   }
-
-  logOut(){
-    this.authService.logOut()
-    .then(() => {
-     /*  this.form.reset(); */ 
-      this.router.navigate(['/app-registration']);
-    })
-    .catch((error)=>console.error('Log out failed:', error.message));
-  }
-
-  closeModal(){
-    if(this.modal != undefined){
-      this.form.reset();
-      this.modal.nativeElement.style.display = 'none';
-    }
+  closeLoginForm(){
    this.navigateHome()
   }
 
-  navigateHome=()=> this.router.navigate(['./app-home']);
+  navigateHome=()=> this.router.navigate(['/app-home']);
   
 
   resetInputs=()=> this.form.reset();
