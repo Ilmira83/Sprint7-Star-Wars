@@ -8,6 +8,7 @@
   align-items: center;
   background-color: rgba(220, 217, 217, 0.252);
   box-sizing: border-box;
+  z-index: 1000;
 }
 .close-button{
   width: 100%;
@@ -37,4 +38,8 @@
 }
 .footer{
   color: grey;
+}
+.validations{
+  color: red;
+  font-size: 13px;
 }

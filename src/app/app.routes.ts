@@ -1,40 +1,72 @@
 import { Routes } from '@angular/router';
 import { LoginGuard } from './guards/login.guard';
+import { LayoutComponent } from './components/layout/layout.component';
 
 
 export const routes: Routes = [
-  { path: 'app-home',
-    pathMatch: 'full',
-    loadComponent: async () => {
-      const m = await import('./home/home.component');
-      return m.HomeComponent
-    } 
+  {
+    path: '',
+    component: LayoutComponent, // this is the component with the <router-outlet> in the template
+    children: [
+      {
+        path: 'app-home', // child route path
+        pathMatch: 'full',
+        loadComponent: async () => {
+          const m = await import('./components/home/home.component');
+          return m.HomeComponent
+        }, 
+      },
+      {
+        path: 'app-starships',
+        pathMatch: 'full',
+        loadComponent: async () => {
+          const m = await import('./components/starships/starships.component');
+          return m.StarshipsComponent
+        },
+        canActivate: [LoginGuard], 
+      },
+      {
+        path: 'starships/:shipID',
+        loadComponent: async () => {
+          const m = await import('./components/starshipsdetails/starshipsdetails.component');
+          return m.StarshipsdetailsComponent
+        } 
+      },
+    ],
   },
-  { path: 'app-starships', 
+/*   { path: 'app-home',
     pathMatch: 'full',
     loadComponent: async () => {
-      const m = await import('./starships/starships.component');
+      const m = await import('./components/home/home.component');
+      return m.HomeComponent
+    },
+  }, */
+/*   { path: 'app-starships', 
+    pathMatch: 'full',
+    loadComponent: async () => {
+      const m = await import('./components/starships/starships.component');
       return m.StarshipsComponent
     },
     canActivate: [LoginGuard],
-  },
-  { path: 'starships/:shipID',
+  }, */
+/*   { path: 'starships/:shipID',
     pathMatch: 'full',
     loadComponent: async () => {
-      const m = await import('./starshipsdetails/starshipsdetails.component');
+      const m = await import('./components/starshipsdetails/starshipsdetails.component');
       return m.StarshipsdetailsComponent
     }  
-  },
+  }, */
   { path: 'app-registration',
     pathMatch: 'full',
     loadComponent: async () => {
-      const m = await import('./registration/registration.component');
+      const m = await import('./components/registration/registration.component');
       return m.RegistrationComponent;
-     },
+     }
+   
   },
-  { path:'**',
+/*   { path:'**',
     redirectTo: 'app-home'
-  }
+  } */
 
 
 ];

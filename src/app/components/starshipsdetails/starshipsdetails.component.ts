@@ -1,7 +1,7 @@
 import { Component, inject, Input, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StarshipqueryService } from '../services/starshipquery.service';
-import { Ships } from '../interface/ships';
+import { StarshipqueryService } from '../../services/starshipquery.service';
+import { Ships } from '../../interface/ships';
 
 
 

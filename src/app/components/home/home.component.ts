@@ -1,6 +1,6 @@
 import { Component, inject, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FilmService } from '../services/film.service';
+import { FilmService } from '../../services/film.service';
 
 
 @Component({

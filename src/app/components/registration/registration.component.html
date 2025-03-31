@@ -5,7 +5,7 @@
     (click)="closeModal()"
   ></button>
 </div>
-<div class="registration-form">
+<div class="modal modal-fullscreen" #myModal class="registration-form">
   <form class="form-group" [formGroup]="form">
     <div class="col g-3 align-items-center">
       <div class="form-header col-auto text-start">
@@ -23,7 +23,14 @@
           class="form-control pt-3"
           placeholder="Email"
           formControlName="email"
-        />
+        >
+        @if(form.controls['email'].touched){
+          @if(form.controls['email'].errors?.['required']){
+            <p class="validations">This field is required.</p>}
+          @if(form.controls['email'].errors?.['email']){
+            <p class="validations">Enter your e-mail correctly.</p>
+          }
+        }
       </div>
       <div class="form-input password col-auto mb-3">
         <input
@@ -31,7 +38,17 @@
           class="form-control pt-3"
           placeholder="Password"
           formControlName="password"
-        />
+        >
+        @if(form.controls['password'].touched){
+          @if(form.controls['password'].errors?.['required']){
+            <p class="validations">This field is required.</p>}
+          @if(form.controls['password'].errors?.['pattern']){
+            <p class="validations">Only numbers are allowed.</p>
+          }
+          @if(form.controls['password'].errors?.['minlength']){
+            <p class="validations">Minimum 5 numbers.</p>
+          }
+        }
       </div>
       @if(authService.newReg()){
       <div class="form-input username col-auto mb-3">
@@ -40,7 +57,11 @@
           class="form-control pt-3"
           placeholder="Username"
           formControlName="username"
-        />
+        >
+        @if(form.controls['username'].touched){
+          @if(form.controls['username'].errors?.['required']){
+            <p class="validations">This field is required.</p>}
+        }
       </div>
       }
     </div>
