@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { StarshipsComponent } from './starships/starships.component';
-import { StarshipsdetailsComponent } from './starshipsdetails/starshipsdetails.component';
+import { LoginGuard } from './guards/login.guard';
+
 
 export const routes: Routes = [
   { path: 'app-home',
@@ -16,7 +15,8 @@ export const routes: Routes = [
     loadComponent: async () => {
       const m = await import('./starships/starships.component');
       return m.StarshipsComponent
-    } 
+    },
+    canActivate: [LoginGuard],
   },
   { path: 'starships/:shipID',
     pathMatch: 'full',
@@ -29,8 +29,8 @@ export const routes: Routes = [
     pathMatch: 'full',
     loadComponent: async () => {
       const m = await import('./registration/registration.component');
-      return m.RegistrationComponent
-    }  
+      return m.RegistrationComponent;
+     },
   },
   { path:'**',
     redirectTo: 'app-home'

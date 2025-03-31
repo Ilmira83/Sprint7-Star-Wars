@@ -1,26 +1,32 @@
-import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { AuthService } from './services/auth.service';
 import { RegistrationComponent } from "./registration/registration.component";
-import { MatButtonModule} from '@angular/material/button';
-import { MatDialog, MatDialogModule} from '@angular/material/dialog';
+
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLinkActive, RouterLink, CommonModule, MatButtonModule, MatDialogModule],
+  imports: [RouterOutlet, RouterLinkActive, RouterLink, CommonModule, RegistrationComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  
 })
 export class AppComponent {
-  readonly regForm = inject(MatDialog)
+  authService = inject(AuthService);
+  router = inject(Router)
+  searchInputActive: boolean = false;
 
-  openRegistrationForm() {
-    const modalForm = this.regForm.open(RegistrationComponent);
 
-    modalForm.afterClosed().subscribe((result: any) => {
-      console.log(`Dialog result: ${result}`);
-    });
+  showInput() {
+    this.searchInputActive = true;
   }
+ 
+  hideInput() {
+    this.searchInputActive = false;
+  }
+
+
 }
 

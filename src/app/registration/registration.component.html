@@ -1,41 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <section >
-    <div class="registration">
-      <div class="closeButton text-end">
-        <button type="button" class="btn-close btn-lg bg-white text-black me-3 mt-2" 
-        mat-dialog-close aria-label="Close"></button>
+<div class="close-button text-end">
+  <button
+    type="button"
+    class="btn-close btn-lg bg-white text-black"
+    (click)="closeModal()"
+  ></button>
+</div>
+<div class="registration-form">
+  <form class="form-group" [formGroup]="form">
+    <div class="col g-3 align-items-center">
+      <div class="form-header col-auto text-start">
+        <label class="col-form-label fs-3 fw-bold mb-3 text-start">
+          Enter your email and password to continue
+        </label>
+        <p class="fs-6 mb-4">
+          Log in to Star Wars with your MyDisney account. If you don't have one
+          then Sign Up.
+        </p>
       </div>
-      <form class="form-group">
-        <div class="col g-3 align-items-center">
-          <div class="form-header col-auto text-start">
-            <label class="col-form-label fs-3 fw-bold mb-3 text-start">Enter your email to continue</label>
-              <p class="fs-5 mb-4">Log in to Star Wars with your MyDisney account. 
-                If you don't have one, you will be prompted to create one.</p>
-          </div>
-          <div class="form-input inputEMail col-auto mb-3">
-            <input type="email" class="form-control" placeholder="Email">
-          </div>
-        </div>
-        <div class="form-button d-grid">
-          <button type="button" class="btn btn-warning btn-lg fw-bold text-black">Continue</button>
-        </div>
-        <footer class="form-footer">
-          <p class="text-start mt-5 fw-bold">
-            Star Wars is part of The Walt Disney Family of Companies.</p>
-          <p class="text-start"> MyDisney lets you seamlessly log in to services and experiences across 
-            The Walt Disney Family of Companies, such as Disney+, ESPN, Walt Disney World, and more.</p>
-        </footer>
-      </form>
+      <div class="form-input inputEMail col-auto mb-3">
+        <input
+          type="email"
+          class="form-control pt-3"
+          placeholder="Email"
+          formControlName="email"
+        />
+      </div>
+      <div class="form-input password col-auto mb-3">
+        <input
+          type="password"
+          class="form-control pt-3"
+          placeholder="Password"
+          formControlName="password"
+        />
+      </div>
+      @if(authService.newReg()){
+      <div class="form-input username col-auto mb-3">
+        <input
+          type="username"
+          class="form-control pt-3"
+          placeholder="Username"
+          formControlName="username"
+        />
+      </div>
+      }
     </div>
-  </section>
-  
-</body>
-</html>
-
+    @if(!authService.newReg()){
+    <div class="form-button d-grid mb-2">
+      <button
+        type="button"
+        class="btn btn-warning btn-lg fw-bold text-black"
+        (click)="logIn()"
+      >
+        Log In
+      </button>
+    </div>
+    <div class="form-button d-grid">
+      <button
+        type="button"
+        class="btn btn-warning btn-lg fw-bold text-black"
+        (click)="authService.openRegRofm()"
+      >
+        Sign Up
+      </button>
+    </div>
+    } @if(authService.newReg()){
+    <div class="form-button d-grid">
+      <button
+        type="button"
+        class="btn btn-warning btn-lg fw-bold text-black"
+        (click)="register()"
+      >
+        Continue
+      </button>
+    </div>
+    }
+    <footer class="form-footer">
+      <p class="text-start mt-5 fw-bold">
+        Star Wars is part of The Walt Disney Family of Companies.
+      </p>
+      <p class="text-start">
+        MyDisney lets you seamlessly log in to services and experiences across
+        The Walt Disney Family of Companies, such as Disney+, ESPN, Walt Disney
+        World, and more.
+      </p>
+    </footer>
+  </form>
+</div>

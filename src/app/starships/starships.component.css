@@ -1,8 +1,3 @@
-.shiplist{
-  background-color: rgb(14, 14, 14);
-  color: white;
-  min-height: 100vh
-}
 .shipname:hover {
   cursor: pointer;
   font-size: 32px !important;
