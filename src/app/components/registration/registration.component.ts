@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { UserInterface } from '../../interface/user';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class RegistrationComponent {
   router = inject(Router)
   form: FormGroup;
   user = signal<UserInterface | null>(null);
+  toastrservice = inject(ToastrService);
 
   @ViewChild('myModal') modal: ElementRef | undefined;
  
@@ -66,19 +68,20 @@ export class RegistrationComponent {
   logIn(){
     this.authService.logIn(this.form.value.email, this.form.value.password)
     .then(() => {
+      this.toastrservice.success('You are loged in.', 'Success')
       this.authService.loggedIn.set(true);
       this.closeLoginForm()
     })
-    .catch(()=> alert('Log in failed: invalid e-mail '));
+    .catch(()=> this.toastrservice.error('Log in failed: invalid e-mail or password.', 'Error'));
+    
   }
+
   closeLoginForm(){
-   this.navigateHome()
+    this.form.reset()
+    this.navigateHome()
   }
 
   navigateHome=()=> this.router.navigate(['/app-home']);
-  
-
-  resetInputs=()=> this.form.reset();
   
 }
 

@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } f
 import { UserInterface } from "../interface/user";
 import { FirebaseService } from "../shared/services/firebase.service";
 import { Router } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 
 
 @Injectable({
@@ -15,7 +16,7 @@ export class AuthService {
   loggedIn = signal<boolean>(false);
   newReg = signal<boolean>(false);
   router = inject(Router)
-
+  toastrservice = inject(ToastrService);
 
   openRegRofm(){
     this.newReg.set(true);
@@ -23,6 +24,7 @@ export class AuthService {
   
   register(email:string, password:string, username:string){
     if(!email || !password || !username){
+      this.toastrservice.warning('Please, enter Email, password and Username!')
       console.error('Enter Email, password and Username!');
       return;
     }
@@ -39,6 +41,7 @@ export class AuthService {
           this.loggedIn.set(false);
     localStorage.clear();
     this.router.navigate(['/app-home']);
+    this.toastrservice.info('You are loged out.', 'Info')
     } catch(error) {
       if (error instanceof Error) {
         console.error('Logout failed:', error.message);
