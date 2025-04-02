@@ -15,7 +15,6 @@ export class FilmService {
   getFilm(){
       this.http.get<FilmsResponse>(this.filmsURL).subscribe(r => {
         this.filmsList.update(v=> [...v??[], ...r.results])
-        console.log(this.filmsList())
       });
       
   }

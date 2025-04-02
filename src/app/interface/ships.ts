@@ -16,6 +16,7 @@ export interface Ships {
   length:string,
   crew:string,
   starship_class:string,
+  pilots: []
   url:string
 }
 

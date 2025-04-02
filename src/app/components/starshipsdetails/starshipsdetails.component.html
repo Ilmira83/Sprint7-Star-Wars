@@ -1,18 +1,37 @@
 <section class="description">
   @if (starShip()){
-  <div class="ship-img">
-    <img [src]="'/assets/starships/' + (starShip()!.url.split('/')[5]) + '.jpg'" alt= {{starShip()!.name}} class="w-full h-auto object-cover border-img">
+  <div class="ship-content d-flex">
+    <div class="ship-img">
+      <img
+        [src]="'/assets/starships/' + starShip()!.url.split('/')[5] + '.jpg'"
+        alt="{{ starShip()!.name }}"
+        class="w-full h-auto object-cover border-img"
+      />
+    </div>
+    <div class="shipInfo">
+      <h2 class="pt-3">{{ starShip()!.name }}</h2>
+      <h5 class="pt-3">Starship class: {{ starShip()!.starship_class }}</h5>
+      <h4 class="pt-3">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque,
+        quibusdam exercitationem.
+      </h4>
+      <h4 class="pt-3">Crew: {{ starShip()!.crew }}</h4>
+      <h4 class="pt-3">Manufacturer: {{ starShip()!.manufacturer }}</h4>
+    </div>
   </div>
-  <div class="shipInfo ">
-    <h2 class="pt-3">{{starShip()!.name}}</h2>
-    <h4 class="pt-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque, quibusdam exercitationem.</h4>
-    <h4 class="pt-3">Crew: {{starShip()!.crew}}</h4>
-    <h4 class="pt-3">Manufacturer: {{starShip()!.manufacturer}}</h4>
+  <div class="pilots-content row mt-2 ms-2">
+    @if(pilot()){ @for(p of pilot(); track p.url){
+    <div class="card-pilot me-3" style="width: 18rem">
+      <img
+        [src]="'/assets/people/' + p.url.split('/')[5] + '.jpg'"
+        class="card-img-top"
+        alt="p.name"
+      />
+      <div class="card-body">
+        <h3 class="card-title">{{ p.name }}</h3>
+      </div>
+    </div>
+    }}
   </div>
-}
+  }
 </section>
-
-
-
-
-

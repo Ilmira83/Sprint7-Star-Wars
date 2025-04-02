@@ -1,15 +1,12 @@
-.card-films {
-  border-radius: 0 0 40px 0;
-  background: linear-gradient(
-    180deg,
-    transparent 25%,
-    #142332d0 60%,
-    #14233275 100%
-  );
+.film-background{
+  height: 250vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover; 
+
+}
+.film-content{
+  border-radius: 20px 20px 40px 10px;
+  background: linear-gradient(to right, rgba(74, 73, 73, 0.7) 0%, transparent 50%);
 }
 
-.card-films img {
-  border: 2px solid #142332d0;
-  margin-left: 20px;
-  margin-right: 20px;
-}

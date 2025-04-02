@@ -1,15 +1,29 @@
 .description{
-  display: flex;
+  display: block;
   justify-content: center;
 }
-
+.ship-img{
+  margin: 10px 10px;
+}
 .shipInfo{
   display: grid;
   width: auto;
   align-items: center;
-  margin-top: 20px;
+  margin: 10px 10px;
   background-color: rgb(45, 44, 44);
   color: white;
   border-left: 1px solid red;
   padding: 10px 10px;
+}
+.card-pilot {
+  border-radius: 0 0 40px 0;
+  background: linear-gradient(
+    180deg,
+    transparent 25%,
+    #142332d0 60%,
+    #14233275 100%
+  );
+}
+.card-pilot img {
+  border: 2px solid #142332d0;
 }

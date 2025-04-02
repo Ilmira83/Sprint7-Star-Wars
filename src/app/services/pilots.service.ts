@@ -1,0 +1,41 @@
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable, signal } from '@angular/core';
+import { StarshipqueryService } from './starshipquery.service';
+import { forkJoin } from 'rxjs';
+
+export interface PilotsResponse {
+  count: number;
+  next: string;
+  previous: string;
+  results: Pilots[];
+}
+export interface Pilots {
+  name: string;
+  url: string;
+}
+@Injectable({
+  providedIn: 'root',
+})
+
+export class PilotsService {
+  starshipService = inject(StarshipqueryService);
+  starShipSelected = this.starshipService.starShip;
+  pilot = signal<Pilots[] | undefined> ([]);
+  http = inject(HttpClient);
+
+  getPilots() {
+    this.pilot.set([]);
+    const pilotsUrls = this.starShipSelected()?.pilots;
+    if(pilotsUrls?.length) {
+      forkJoin(pilotsUrls.map(url => this.http.get<Pilots>(url))).subscribe({
+        next: (response: Pilots[]) => {
+          this.pilot.set(response);
+      },
+      error: (err: any) => console.error('Error fetching pilots:', err)
+      })
+    } else {
+      this.pilot.set([])
+    }
+  }
+
+}
