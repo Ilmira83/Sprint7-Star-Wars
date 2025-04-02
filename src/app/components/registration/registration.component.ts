@@ -1,9 +1,9 @@
 import { Component, ElementRef, inject, Input, input, signal, ViewChild } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { LocalStorageService } from '../../services/local-storage.service';
+import { LocalStorageService } from '../../shared/services/local-storage.service';
 import { UserInterface } from '../../interface/user';
 import { ToastrService } from 'ngx-toastr';
 
@@ -57,22 +57,23 @@ export class RegistrationComponent {
     this.authService.register(this.form.value.email, this.form.value.password, this.form.value.username)!
     .then(() => {
       this.authService.newReg.set(false);
-      this.saveUSer()
+      this.saveUSer();
       this.form.reset();
+      this.toastrservice.info('You are registered now.', 'Info', {closeButton: true});
     })
     .catch(() => {
-      alert('Registration mistake: This e-mail already in use.');
+      this.toastrservice.error('Registration mistake: This e-mail already in use.','Error', {closeButton: true});
     });
   }
 
   logIn(){
     this.authService.logIn(this.form.value.email, this.form.value.password)
     .then(() => {
-      this.toastrservice.success('You are loged in.', 'Success')
+      this.toastrservice.success('You are loged in.', 'Success', {closeButton: true});
       this.authService.loggedIn.set(true);
-      this.closeLoginForm()
+      this.closeLoginForm();
     })
-    .catch(()=> this.toastrservice.error('Log in failed: invalid e-mail or password.', 'Error'));
+    .catch(()=> this.toastrservice.error('Log in failed: invalid e-mail or password.', 'Error', {closeButton: true}));
     
   }
 

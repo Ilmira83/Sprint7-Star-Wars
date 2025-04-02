@@ -14,11 +14,6 @@ getItem(key: string): string | null {
   return localStorage.getItem(key);
 }
 
-// Remove a value from local storage
-removeItem(key: string): void {
-  localStorage.removeItem(key);
-}
-
 // Clear all items from local storage
 clear(): void {
   localStorage.clear();

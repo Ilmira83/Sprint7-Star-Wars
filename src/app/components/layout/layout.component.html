@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-
 <header class="header">
   <nav class="social-nav">
     <ul class="social-list d-flex">
       <li class="tiktok-icon me-4">
         <a href="https://www.tiktok.com/@starwars" target="_blank">
-          <i
-            class="fab fa-tiktok"
-            style="color: white; font-size: 25px"
-          ></i>
+          <i class="fab fa-tiktok" style="color: white; font-size: 25px"></i>
         </a>
       </li>
       <li class="instagram-icon me-4">
@@ -60,28 +48,34 @@
   </div>
   <div class="header-buttons">
     <div class="search d-flex">
-       @if(!searchInputActive){
-    <button type="button" class="btn search-button text-white fs-6 me-3" 
-    (click)="showInput()">
-      <i class="fa fa-search me-2"></i>
-      SEARCH
-    </button>
-    }
-    @if(searchInputActive){
-      <input type="text" class="form-control">
-      <button type="button" class="btn-close btn-lg bg-white text-black ms-2 py-2 px-2"
-      (click)="hideInput()">
-    </button>
-    }
-    </div>
-   <div >
-    @if(!authService.loggedIn()){
-      <button type="button" class="btn login-button text-white fs-6 me-3"
-      routerLink='/app-registration'
-      routerLinkActive="active"
-      ariaCurrentWhenActive="page"
+      @if(!searchInputActive){
+      <button
+        type="button"
+        class="btn search-button text-white fs-6 me-3"
+        (click)="showInput()"
       >
-       <i class="fa fa-user me-2"></i>
+        <i class="fa fa-search me-2"></i>
+        SEARCH
+      </button>
+      } @if(searchInputActive){
+      <input type="text" class="form-control" />
+      <button
+        type="button"
+        class="btn-close btn-lg bg-white text-black ms-2 py-2 px-2"
+        (click)="hideInput()"
+      ></button>
+      }
+    </div>
+    <div class="login-registration">
+      @if(!authService.loggedIn()){
+      <button
+        type="button"
+        class="btn login-button text-white fs-6 me-3"
+        routerLink="/app-registration"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+      >
+        <i class="fa fa-user me-2"></i>
         LOG IN
       </button>
       } @if(authService.loggedIn()){
@@ -93,12 +87,12 @@
         >
           LOG OUT
         </button>
+      </div>
+      }
     </div>
-    }
-   </div>
   </div>
 </header>
-<nav>
+<nav class="site-navigation">
   <ul
     class="nav nav-underline pt-5 justify-content-center text-white border-top border-bottom border-light-subtle"
   >
@@ -125,9 +119,6 @@
       </a>
     </li>
   </ul>
-</nav> 
+</nav>
 
 <router-outlet></router-outlet>
-
-</body>
-</html>

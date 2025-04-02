@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-layout',
@@ -10,7 +10,6 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LayoutComponent {
   authService = inject(AuthService);
-  router = inject(Router)
   searchInputActive: boolean = false;
 
 

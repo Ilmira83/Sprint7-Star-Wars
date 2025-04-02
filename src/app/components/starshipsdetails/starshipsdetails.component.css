@@ -8,8 +8,8 @@
   width: auto;
   align-items: center;
   margin-top: 20px;
-  background-color: rgb(14, 14, 14);
+  background-color: rgb(45, 44, 44);
   color: white;
-  border: 1px solid white;
-  padding: 10px 10px 10px 10px;
+  border-left: 1px solid red;
+  padding: 10px 10px;
 }

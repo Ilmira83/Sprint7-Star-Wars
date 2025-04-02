@@ -17,7 +17,6 @@ export class StarshipqueryService {
   
   getStarshipsList(){
     this.nextPageLoading = true;
-
     this.http.get<ShipsResponse>(this.shipsURL).subscribe(response => {
       this.starshipsList.update(v=> [...v??[], ...response.results]);
       this.shipsURL = response.next;

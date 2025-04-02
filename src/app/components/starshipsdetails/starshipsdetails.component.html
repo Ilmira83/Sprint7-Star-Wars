@@ -1,7 +1,10 @@
 <section class="description">
   @if (starShip()){
+  <div class="ship-img">
+    <img [src]="'/assets/starships/' + (starShip()!.url.split('/')[5]) + '.jpg'" alt= {{starShip()!.name}} class="w-full h-auto object-cover border-img">
+  </div>
   <div class="shipInfo ">
-    <h1 class="pt-3">{{starShip()!.name}}</h1>
+    <h2 class="pt-3">{{starShip()!.name}}</h2>
     <h4 class="pt-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque, quibusdam exercitationem.</h4>
     <h4 class="pt-3">Crew: {{starShip()!.crew}}</h4>
     <h4 class="pt-3">Manufacturer: {{starShip()!.manufacturer}}</h4>

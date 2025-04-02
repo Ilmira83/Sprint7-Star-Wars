@@ -11,12 +11,20 @@ import { FilmService } from '../../services/film.service';
  
 })
 export class HomeComponent implements OnInit {
-  filmService = inject(FilmService)
+  filmService = inject(FilmService);
+  film = this.filmService.film;
+  currentfilm:number = 0;
 
   ngOnInit(): void {
     this.filmService.getFilm()
-
   }
-
-
+  nextFilm(){
+    if(this.currentfilm <= this.filmService.filmsList()!.length-1)
+    this.currentfilm++
+  }
+  previuosFilm() {
+    if(this.currentfilm >= 1) {
+      this.currentfilm--
+    } 
+  }
 }

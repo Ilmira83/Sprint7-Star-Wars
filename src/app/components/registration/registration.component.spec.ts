@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { RegistrationComponent } from './registration.component';
+import { ToastrModule } from 'ngx-toastr';
 
 describe('RegistrationComponent', () => {
   let component: RegistrationComponent;
@@ -8,7 +8,7 @@ describe('RegistrationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RegistrationComponent]
+      imports: [RegistrationComponent, ToastrModule.forRoot()]
     })
     .compileComponents();
 

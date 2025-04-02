@@ -5,12 +5,8 @@ export interface FilmsResponse{
   results: Films[]
 }
 export interface Films {
-  title:string
+  title:string,
   episode_id:string,
   opening_crawl:string,
   url:string
-}
-export interface filmByID {
-  id: number;
-  image: string
 }

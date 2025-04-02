@@ -27,10 +27,6 @@ export class FirebaseService {
   get auth(){
     return this._auth;
   }
- /* private _db = getFirestore(this._app)
-  get db(){
-    return this._db;
-  } */
 }
 
 
