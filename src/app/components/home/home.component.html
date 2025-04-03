@@ -1,35 +1,3 @@
-<!-- @for (film of filmService.filmsList(); track film; let i = $index){
-@if(i === currentfilm){
-<div class="carousel pt-2 pb-5">
-  <div class="card-films active ">
-    <div
-      class="film-background py-2 px-2"
-      [style.backgroundImage]="
-        'url(/assets/films/' + film.url.split('/')[5] + '.jpeg)'
-      "
-    >
-      <div class="film-content py-3 px-3">
-        <h3>
-          {{ film.title }}
-        </h3>
-        <h4>Episode: {{ film.episode_id }}</h4>
-        <h5>
-          {{ film.opening_crawl }}
-        </h5>
-      </div>
-    </div>
-  </div>
-  @if(i !== 0){
-  <button class="carousel-control-prev" type="button" (click)="previuosFilm()">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-  </button>
-  } @if(i !== 5){
-  <button class="carousel-control-next" type="button" (click)="nextFilm()">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-  </button>
-  }
-</div>
-} } -->
 <div id="starwars" class="animate d-flex mt-5">
   <div class="max-w-4xl mx-auto">
     <div class=" video-container w-full overflow-hidden margin-button-negative">

@@ -7,7 +7,8 @@ export interface Ship {
   length:string,
   crew:string,
   starship_class:string,
-  pilots: []
+  pilots: [],
+  films: [],
   url:string
 }
 

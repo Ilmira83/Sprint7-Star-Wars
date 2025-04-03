@@ -2,6 +2,7 @@ import { Component, effect, inject, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StarshipqueryService } from '../../services/starshipquery.service';
 import { PilotsService } from '../../services/pilots.service';
+import { FilmService } from '../../services/film.service';
 
 
 
@@ -19,14 +20,18 @@ export class StarshipsdetailsComponent implements OnInit {
   starShipService = inject(StarshipqueryService)
   starShip = this.starShipService.starShip
   pilotsService = inject(PilotsService)
+  filmsService = inject(FilmService)
   pilot = this.pilotsService.pilot
+  film = this.filmsService.film
 
   constructor(){
     
     effect(()=>{this.pilot.set([]);
-      this.pilotsService.getPilots()}
+      this.film.set([]);
+      this.pilotsService.getPilots();
+      this.filmsService.getFilm()
+    }
   )
-  console.log(this.pilot()) 
   }
 
   ngOnInit(): void {

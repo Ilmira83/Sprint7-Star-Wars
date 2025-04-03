@@ -33,5 +33,19 @@
     </div>
     }}
   </div>
+  <div class="films-content row mt-2 ms-2">
+    @if(film()){ @for(f of film(); track f.url){
+    <div class="card-pilot me-3" style="width: 18rem">
+      <img
+        [src]="'/assets/films/' + f.url.split('/')[5] + '.jpeg'"
+        class="card-img-top"
+        alt="f.name"
+      />
+      <div class="card-body">
+        <h3 class="card-title">{{ f.title }}</h3>
+      </div>
+    </div>
+    }}
+  </div>
   }
 </section>
