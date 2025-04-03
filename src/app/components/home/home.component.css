@@ -1,12 +1,84 @@
+/* .carousel{
+  display: inline;
+  margin-left: 350px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 .film-background{
   height: 250vh;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover; 
-
 }
 .film-content{
+  margin-top: 100px;
+  text-align: center;
   border-radius: 20px 20px 40px 10px;
   background: linear-gradient(to right, rgba(74, 73, 73, 0.7) 0%, transparent 50%);
 }
-
+ */
+ #starwars {
+  max-height: 100%;
+  width: 100%;
+  position: relative;
+}
+ .animate {
+  .intro {
+    font-size: 200%;
+    color: #f3f9fb;
+    text-align: center;
+    width: 578px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: intro 5s linear 0s;
+    opacity: 0;
+  }}
+  @keyframes intro {
+    0% { 
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+    80% { 
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.logo {
+  position: absolute;
+  width: 0;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: logo  10s linear 5s;
+  opacity: 0;
+}
+@keyframes logo {
+  0% { 
+  width: 60%;
+  opacity: 1;
+}
+10% {
+  width: 60%;
+  opacity: 1;
+}
+15% {
+  width: 60%;
+}
+  90% {
+  width: 10px;
+  opacity: 1;
+}
+100% {
+  width: 0;
+  opacity: 0;
+}
+}
+ 

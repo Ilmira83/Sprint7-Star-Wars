@@ -1,7 +1,7 @@
-@for (film of filmService.filmsList(); track film; let i = $index){
+<!-- @for (film of filmService.filmsList(); track film; let i = $index){
 @if(i === currentfilm){
-<div class="carousel text-start pt-2 pb-5">
-  <div class="card-films active">
+<div class="carousel pt-2 pb-5">
+  <div class="card-films active ">
     <div
       class="film-background py-2 px-2"
       [style.backgroundImage]="
@@ -29,4 +29,25 @@
   </button>
   }
 </div>
-} }
+} } -->
+<div id="starwars" class="animate d-flex mt-5">
+  <div class="max-w-4xl mx-auto">
+    <div class=" video-container w-full overflow-hidden margin-button-negative">
+      <video 
+        aria-label="Star Wars Starships battle Video"
+        autoplay 
+        loop 
+        muted  
+        oncanplay="this.play()" onloadedmetadata="this.muted = true"
+        poster="/assets/video/starship-video.webp">
+        <source src="/assets/video/starship-video.webm" type="video/webm">
+        <source src="/assets/video/starship-video.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <img src="/assets/mainLogo.png" class="logo " alt="Star Wars Logo" aria-label="Star Wars Logo" />
+  <p class="intro">
+    A long time ago, <br>in a galaxy far, <br>far away... 
+  </p>
+</div>
+
