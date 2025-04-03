@@ -1,14 +1,17 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { Films, FilmsResponse } from '../interface/films';
+import { Film } from '../models/Film.interface';
 import { HttpClient } from '@angular/common/http';
+
+export interface FilmsResponse{
+  results: Film[]
+}
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class FilmService {
-  filmsList = signal<Films[] | undefined>(undefined);
-  film = signal<Films | undefined>(undefined);
+  filmsList = signal<Film[] | undefined>(undefined);
   filmsURL = 'https://swapi.dev/api/films/';
   http = inject(HttpClient)
 

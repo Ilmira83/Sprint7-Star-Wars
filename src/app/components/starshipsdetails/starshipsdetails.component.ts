@@ -1,7 +1,6 @@
-import { Component, effect, inject, Input, OnInit, signal } from '@angular/core';
+import { Component, effect, inject, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StarshipqueryService } from '../../services/starshipquery.service';
-import { Ships } from '../../interface/ships';
 import { PilotsService } from '../../services/pilots.service';
 
 

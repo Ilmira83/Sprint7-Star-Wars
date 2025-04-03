@@ -1,7 +1,7 @@
 import { Router, CanActivate } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { inject } from '@angular/core';
-import { AuthService } from '../shared/services/auth.service';
+import { AuthService } from '../auth.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({

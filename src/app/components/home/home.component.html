@@ -1,10 +1,13 @@
-@for (film of filmService.filmsList(); track film; let i = $index){ 
+@for (film of filmService.filmsList(); track film; let i = $index){
 @if(i === currentfilm){
 <div class="carousel text-start pt-2 pb-5">
-
-    <div class="card-films active">
-    <div class="film-background py-2 px-2"
-      [style.backgroundImage]="'url(/assets/films/' + film.url.split('/')[5] + '.jpeg)'">  
+  <div class="card-films active">
+    <div
+      class="film-background py-2 px-2"
+      [style.backgroundImage]="
+        'url(/assets/films/' + film.url.split('/')[5] + '.jpeg)'
+      "
+    >
       <div class="film-content py-3 px-3">
         <h3>
           {{ film.title }}
@@ -20,13 +23,10 @@
   <button class="carousel-control-prev" type="button" (click)="previuosFilm()">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
   </button>
-  }
-  @if(i !== 5){
+  } @if(i !== 5){
   <button class="carousel-control-next" type="button" (click)="nextFilm()">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
   </button>
   }
 </div>
-}
-
- }
+} }

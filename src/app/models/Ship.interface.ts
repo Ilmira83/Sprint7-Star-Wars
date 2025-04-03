@@ -1,13 +1,4 @@
-
-export interface ShipsResponse{
-  count: number,
-  next: string,
-  previous: string,
-  results: Ships[]
-}
-
-
-export interface Ships {
+export interface Ship {
   id:number
   name:string,
   model:string,

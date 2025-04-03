@@ -1,7 +1,7 @@
 import { inject, Injectable, signal } from "@angular/core";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "@angular/fire/auth";
-import { UserInterface } from "../../interface/user";
-import { FirebaseService } from "./firebase.service";
+import { UserInterface } from "../models/User.interface";
+import { FirebaseService } from "../shared/services/firebase.service";
 import { Router } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 

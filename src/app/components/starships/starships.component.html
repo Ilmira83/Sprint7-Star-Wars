@@ -1,38 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <main class="shiplist">
-      @for(ship of starshipsList(); track ship; let i = $index){
-      <ul class="d-flex text-center justify-content-center pt-5">
-        <li class="d-grid text-start col-5 bg-dark p-3">
-          <a
-            class="shipname fs-4 text-white fw-bold"
-            style="font-family: 'Courier New', Courier, monospace"
-            [routerLink]="['/starships', getShipID(i)]"
-            routerLinkActive="active"
-            ariaCurrentWhenActive="page"
-          >
-            {{ ship.name }}
-          </a>
-          <a
-            class="mt-2 fs-5 text-white text-decoration-none"
-            style="font-family: 'Courier New', Courier, monospace"
-          >
-            {{ ship.model }}
-          </a>
-        </li>
-      </ul>
-      }
-      <div class="d-flex justify-content-center pt-5">
-        <button type="button" class="btn btn-dark" (click)="nexPage()">
-          View more
-        </button>
-      </div>
-    </main>
-  </body>
-</html>
+<main class="shiplist">
+  @for(ship of starshipsList(); track ship; let i = $index){
+  <ul class="d-flex text-center justify-content-center pt-5">
+    <li class="d-grid text-start col-5 bg-dark p-3">
+      <a
+        class="shipname fs-4 text-white fw-bold"
+        style="font-family: 'Courier New', Courier, monospace"
+        [routerLink]="['/starships', getShipID(i)]"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+      >
+        {{ ship.name }}
+      </a>
+      <a
+        class="mt-2 fs-5 text-white text-decoration-none"
+        style="font-family: 'Courier New', Courier, monospace"
+      >
+        {{ ship.model }}
+      </a>
+    </li>
+  </ul>
+  }
+  <div class="d-flex justify-content-center pt-5">
+    <button type="button" class="btn btn-dark" (click)="nexPage()">
+      View more
+    </button>
+  </div>
+</main>

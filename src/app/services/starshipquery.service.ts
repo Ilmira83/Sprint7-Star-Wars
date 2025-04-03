@@ -1,15 +1,21 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { Ships, ShipsResponse } from '../interface/ships';
+import { Ship } from '../models/Ship.interface';
 import { HttpClient } from '@angular/common/http';
 
+export interface ShipsResponse{
+  count: number,
+  next: string,
+  previous: string,
+  results: Ship[]
+}
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class StarshipqueryService {
-  starshipsList = signal<Ships[] | undefined>(undefined)
-  starShip = signal<Ships | null>(null);
+  starshipsList = signal<Ship[] | undefined>(undefined)
+  starShip = signal<Ship | null>(null);
   shipsURL = 'https://swapi.dev/api/starships'
   shipIDURL = 'https://swapi.dev/api/starships/'
   nextPageLoading:boolean = false
@@ -36,7 +42,7 @@ export class StarshipqueryService {
       console.warn(`ID not found`)
       return;
     }
-    return this.http.get<Ships>(`${this.shipIDURL}/${id}/`).subscribe((ship) => {this.starShip.set(ship)});
+    return this.http.get<Ship>(`${this.shipIDURL}/${id}/`).subscribe((ship) => {this.starShip.set(ship)});
   }
      
     

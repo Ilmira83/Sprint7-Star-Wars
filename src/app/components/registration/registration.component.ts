@@ -1,16 +1,16 @@
-import { Component, ElementRef, inject, Input, input, signal, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, signal, ViewChild } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../authentication/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
 import { LocalStorageService } from '../../shared/services/local-storage.service';
-import { UserInterface } from '../../interface/user';
+import { UserInterface } from '../../models/User.interface';
 import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
   selector: 'app-registration',
-  imports: [ ReactiveFormsModule, RouterLink, RouterLinkActive, RouterOutlet],
+  imports: [ ReactiveFormsModule],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.css'
 })

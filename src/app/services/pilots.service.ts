@@ -4,9 +4,6 @@ import { StarshipqueryService } from './starshipquery.service';
 import { forkJoin } from 'rxjs';
 
 export interface PilotsResponse {
-  count: number;
-  next: string;
-  previous: string;
   results: Pilots[];
 }
 export interface Pilots {

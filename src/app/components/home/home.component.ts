@@ -12,7 +12,6 @@ import { FilmService } from '../../services/film.service';
 })
 export class HomeComponent implements OnInit {
   filmService = inject(FilmService);
-  film = this.filmService.film;
   currentfilm:number = 0;
 
   ngOnInit(): void {
