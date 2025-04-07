@@ -24,6 +24,7 @@ export class RegistrationComponent {
   toastrservice = inject(ToastrService);
 
   @ViewChild('myModal') modal: ElementRef | undefined;
+
  
 
   constructor(private fb: FormBuilder){
@@ -64,6 +65,7 @@ export class RegistrationComponent {
     .catch(() => {
       this.toastrservice.error('Registration mistake: This e-mail already in use.','Error', {closeButton: true});
     });
+
   }
 
   logIn(){
@@ -71,18 +73,17 @@ export class RegistrationComponent {
     .then(() => {
       this.toastrservice.success('You are loged in.', 'Success', {closeButton: true});
       this.authService.loggedIn.set(true);
-      this.closeLoginForm();
+      this.router.navigate(['/app-home']);
     })
     .catch(()=> this.toastrservice.error('Log in failed: invalid e-mail or password.', 'Error', {closeButton: true}));
     
   }
 
   closeLoginForm(){
-    this.form.reset()
-    this.navigateHome()
+    this.router.navigate(['/app-home']);
   }
 
-  navigateHome=()=> this.router.navigate(['/app-home']);
+  /* navigateHome=()=> this.router.navigate(['/app-home']); */
   
 }
 

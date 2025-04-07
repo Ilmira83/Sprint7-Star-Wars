@@ -48,12 +48,13 @@
         } }
       </div>
       @if(authService.newReg()){
-      <div class="form-input username col-auto mb-3">
+      <div class="form-input username col-auto mb-3" >
         <input
           type="username"
           class="form-control pt-3"
           placeholder="Username"
           formControlName="username"
+          test-id = "username-input"
         />
         @if(form.controls['username'].touched){
         @if(form.controls['username'].errors?.['required']){
@@ -63,19 +64,21 @@
       }
     </div>
     @if(!authService.newReg()){
-    <div class="form-button d-grid mb-2">
+    <div class="form-button d-grid mb-2" >
       <button
         type="button"
         class="btn btn-warning btn-lg fw-bold text-black"
+        test-id = "login-button"
         (click)="logIn()"
       >
         Log In
       </button>
     </div>
-    <div class="form-button d-grid">
+    <div class="form-button d-grid" >
       <button
         type="button"
         class="btn btn-warning btn-lg fw-bold text-black"
+        test-id = "signup-button"
         (click)="authService.openRegRofm()"
       >
         Sign Up
