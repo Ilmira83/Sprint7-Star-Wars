@@ -1,4 +1,4 @@
-# Budget Sprint 7.
+# Star Wars Sprint 7.
 
 This web application generated with Angular 19.2.0, allows users to get the detailed information about Star Wars starships - the famous American epic space opera media franchise created by George Lucas.
 
