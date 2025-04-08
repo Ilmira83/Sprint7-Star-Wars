@@ -17,6 +17,10 @@ The usage of API's of SWAPI allows to get different information regarding every 
 
 <img src="https://github.com/Ilmira83/Sprint7-Star-Wars/raw/main/public/assets/screenshots/screenshot4.png" width="500">
 
+<img src="https://github.com/Ilmira83/Sprint7-Star-Wars/raw/main/public/assets/screenshots/screenshot1.png" width="500">
+
+<img src="https://github.com/Ilmira83/Sprint7-Star-Wars/raw/main/public/assets/screenshots/screenshot2.png" width="500">
+
 ## Features:
 
 - Dynamic Angular 19 Routing with lazy loading and route guards
