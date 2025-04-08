@@ -34,28 +34,6 @@ export const routes: Routes = [
       },
     ],
   },
-/*   { path: 'app-home',
-    pathMatch: 'full',
-    loadComponent: async () => {
-      const m = await import('./components/home/home.component');
-      return m.HomeComponent
-    },
-  }, */
-/*   { path: 'app-starships', 
-    pathMatch: 'full',
-    loadComponent: async () => {
-      const m = await import('./components/starships/starships.component');
-      return m.StarshipsComponent
-    },
-    canActivate: [LoginGuard],
-  }, */
-/*   { path: 'starships/:shipID',
-    pathMatch: 'full',
-    loadComponent: async () => {
-      const m = await import('./components/starshipsdetails/starshipsdetails.component');
-      return m.StarshipsdetailsComponent
-    }  
-  }, */
   { path: 'app-registration',
     pathMatch: 'full',
     loadComponent: async () => {
@@ -64,9 +42,15 @@ export const routes: Routes = [
      }
    
   },
-/*   { path:'**',
-    redirectTo: 'app-home'
-  } */
+  {
+    path: 'app-starships',
+    pathMatch: 'full',
+    loadComponent: async () => {
+      const m = await import('./components/starships/starships.component');
+      return m.StarshipsComponent
+    },
+    canActivate: [LoginGuard], 
+  },
 
 
 ];

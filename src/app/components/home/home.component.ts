@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FilmService } from '../../services/film.service';
-
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLinkActive, RouterModule ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
  

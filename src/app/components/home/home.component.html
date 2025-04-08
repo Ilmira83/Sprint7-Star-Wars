@@ -1,15 +1,15 @@
 <div id="starwars" class="animate d-flex mt-5">
   <div class="max-w-4xl mx-auto">
-    <div class=" video-container w-full overflow-hidden margin-button-negative">
+    <div class=" video-container  overflow-hidden margin-button-negative">
       <video 
+        class="max-w-full max-h-80"
         aria-label="Star Wars Starships battle Video"
         autoplay 
         loop 
         muted  
         oncanplay="this.play()" onloadedmetadata="this.muted = true"
-        poster="/assets/video/starship-video.webp">
-        <source src="/assets/video/starship-video.webm" type="video/webm">
-        <source src="/assets/video/starship-video.mp4" type="video/mp4">
+        poster="/assets/video/preview.mp4">
+        <source src="/assets/video/preview.mp4" type="video/mp4">
       </video>
     </div>
   </div>
@@ -17,5 +17,12 @@
   <p class="intro">
     A long time ago, <br>in a galaxy far, <br>far away... 
   </p>
+  <a 
+  class="intro-link"
+  routerLink="/app-starships"
+  routerLinkActive="active"
+  ariaCurrentWhenActive="page">
+  Go to Starships
+  </a>
 </div>
 
