@@ -14,21 +14,21 @@ export interface FilmsResponse {
 export class FilmService {
   starshipService = inject(StarshipqueryService);
   starShipSelected = this.starshipService.starShip;
-  film = signal<Film[] | undefined>(undefined);
+  films = signal<Film[] | undefined>(undefined);
   http = inject(HttpClient);
 
   getFilm() {
-    this.film.set([]);
+    this.films.set([]);
     const filmsUrls = this.starShipSelected()?.films;
     if (filmsUrls?.length) {
       forkJoin(filmsUrls.map((url) => this.http.get<Film>(url))).subscribe({
         next: (response: Film[]) => {
-          this.film.set(response);
+          this.films.set(response);
         },
         error: (err: any) => console.error('Error fetching films:', err),
       });
     } else {
-      this.film.set([]);
+      this.films.set([]);
     }
   }
 }

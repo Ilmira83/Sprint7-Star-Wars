@@ -21,13 +21,14 @@ export class StarshipsdetailsComponent implements OnInit {
   starShip = this.starShipService.starShip
   pilotsService = inject(PilotsService)
   filmsService = inject(FilmService)
-  pilot = this.pilotsService.pilot
-  film = this.filmsService.film
+  pilots = this.pilotsService.pilots
+  films = this.filmsService.films
 
   constructor(){
     
-    effect(()=>{this.pilot.set([]);
-      this.film.set([]);
+    effect(()=>{
+      this.pilots.set([]);
+      this.films.set([]);
       this.pilotsService.getPilots();
       this.filmsService.getFilm()
     }

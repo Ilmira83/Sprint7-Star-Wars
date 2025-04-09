@@ -17,21 +17,21 @@ export interface Pilots {
 export class PilotsService {
   starshipService = inject(StarshipqueryService);
   starShipSelected = this.starshipService.starShip;
-  pilot = signal<Pilots[] | undefined> ([]);
+  pilots = signal<Pilots[] | undefined> ([]);
   http = inject(HttpClient);
 
   getPilots() {
-    this.pilot.set([]);
+    this.pilots.set([]);
     const pilotsUrls = this.starShipSelected()?.pilots;
     if(pilotsUrls?.length) {
       forkJoin(pilotsUrls.map(url => this.http.get<Pilots>(url))).subscribe({
         next: (response: Pilots[]) => {
-          this.pilot.set(response);
+          this.pilots.set(response);
       },
       error: (err: any) => console.error('Error fetching pilots:', err)
       })
     } else {
-      this.pilot.set([])
+      this.pilots.set([])
     }
   }
 

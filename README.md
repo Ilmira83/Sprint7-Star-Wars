@@ -1,6 +1,6 @@
 # Star Wars Sprint 7.
 
-This web application generated with Angular 19.2.0, allows users to get the detailed information about Star Wars starships - the famous American epic space opera media franchise created by George Lucas.
+This web application generated with Angular 19.2.0, allows users to see the list and get the detailed information about Star Wars starships - the famous American epic space opera media franchise created by George Lucas.
 
 The implementation of users authentication with Firebase auth and protected routing with Guard allows to see the detailed information only for the registered and logged in users.
 
@@ -9,8 +9,8 @@ The usage of API's of SWAPI allows to get different information regarding every 
 - Name
 - Crew
 - Technical specifications
-- List of pilots (using additionl API call)
-- List of films (using additionl API call)
+- List of pilots with names and images (using additionl API call)
+- List of films with titles and images (using additionl API call)
 
 
 <img src="https://github.com/Ilmira83/Sprint7-Star-Wars/raw/main/public/assets/screenshots/screenshot3.png" width="500">

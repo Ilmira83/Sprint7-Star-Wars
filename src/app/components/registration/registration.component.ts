@@ -41,24 +41,12 @@ export class RegistrationComponent {
       username:this.form.value.username }
     )
   }
-  saveUSer(){
-    this.setUserData()
-    const isLocalPresent = this.localStorageService.getItem('starwarsS7');
-    if(isLocalPresent != null) {
-      const presentArr = JSON.parse(isLocalPresent);
-      presentArr.push(this.user());
-      this.localStorageService.setItem('starwarsS7', JSON.stringify(presentArr))
-    } else {
-      const newArr = [];
-      newArr.push(this.user());
-      this.localStorageService.setItem('starwarsS7', JSON.stringify(newArr))
-    }
-  }
+
    register(){
+    this.setUserData()
     this.authService.register(this.form.value.email, this.form.value.password, this.form.value.username)!
     .then(() => {
       this.authService.newReg.set(false);
-      this.saveUSer();
       this.form.reset();
       this.toastrservice.info('You are registered now.', 'Info', {closeButton: true});
     })
@@ -82,8 +70,6 @@ export class RegistrationComponent {
   closeLoginForm(){
     this.router.navigate(['/app-home']);
   }
-
-  /* navigateHome=()=> this.router.navigate(['/app-home']); */
   
 }
 

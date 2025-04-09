@@ -20,7 +20,11 @@
     </div>
   </div>
   <div class="pilots-content row mt-2 ms-2">
-    @if(pilot()){ @for(p of pilot(); track p.url){
+    <h4>Pilots</h4>
+    @if(pilots()!.length === 0){
+      <h5>To be clarified...</h5>
+    }
+    @if(pilots()){ @for(p of pilots(); track p.url){
     <div class="card-pilot me-3" style="width: 18rem">
       <img
         [src]="'/assets/people/' + p.url.split('/')[5] + '.jpg'"
@@ -34,7 +38,10 @@
     }}
   </div>
   <div class="films-content row mt-2 ms-2">
-    @if(film()){ @for(f of film(); track f.url){
+    <h4>
+      Films
+    </h4>
+    @if(films()){ @for(f of films(); track f.url){
     <div class="card-pilot me-3" style="width: 18rem">
       <img
         [src]="'/assets/films/' + f.url.split('/')[5] + '.jpeg'"
