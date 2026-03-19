@@ -1,4 +1,4 @@
-.close-button{
+/* .close-button{
   width: 100%;
   background-color: rgba(220, 217, 217, 0.252);
 }
@@ -30,4 +30,87 @@
 .validations{
   color: red;
   font-size: 13px;
+} */
+
+/* Затемнение фона на весь экран */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Темный полупрозрачный фон */
+  z-index: 1050;
+  overflow-y: auto;
+}
+
+/* Контейнер самой формы */
+.registration-container {
+  background-color: white;
+  width: 100%;
+  max-width: 450px; /* Максимальная ширина на десктопе */
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.registration-form-content {
+  padding: 40px 30px;
+}
+
+/* Кнопка закрытия */
+.close-button-wrapper {
+  padding: 15px 20px 0 0;
+}
+
+/* Стилизация инпутов под стиль Disney */
+.custom-input {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.custom-input:focus {
+  background-color: #e8e8e8;
+  box-shadow: none;
+  border: 1px solid #ffc107;
+}
+
+/* Кнопки */
+.main-btn {
+  border-radius: 50px;
+  padding: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.secondary-btn {
+  border-radius: 50px;
+  padding: 12px;
+  font-weight: bold;
+}
+
+/* Ошибки валидации */
+.validations {
+  color: #dc3545;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 480px) {
+  .registration-container {
+    height: 100%;
+    max-width: 100%;
+    border-radius: 0; /* На телефонах лучше во весь экран */
+  }
+  
+  .registration-form-content {
+    padding: 20px;
+  }
 }

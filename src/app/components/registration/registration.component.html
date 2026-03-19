@@ -1,4 +1,4 @@
-<div class="close-button text-end">
+<!-- <div class="close-button text-end">
   <button
     type="button"
     class="btn-close btn-lg bg-white text-black"
@@ -106,4 +106,93 @@
       </p>
     </footer>
   </form>
+</div>
+ -->
+<div class="modal-overlay d-flex align-items-center justify-content-center p-3">
+  <div class="registration-container">
+    
+    <div class="close-button-wrapper text-end">
+      <button
+        type="button"
+        class="btn-close"
+        (click)="closeLoginForm()"
+        aria-label="Close"
+      ></button>
+    </div>
+
+    <form class="registration-form-content" [formGroup]="form">
+      <div class="form-header text-start">
+        <h2 class="fs-4 fw-bold mb-3">
+          Enter your email and password to continue
+        </h2>
+        <p class="text-muted mb-4 small">
+          Log in to Star Wars with your MyDisney account. If you don't have one
+          then Sign Up.
+        </p>
+      </div>
+
+      <div class="form-inputs">
+        <div class="mb-3">
+          <input
+            type="email"
+            class="form-control custom-input"
+            placeholder="Email"
+            formControlName="email"
+          />
+          @if(form.controls['email'].touched && form.controls['email'].invalid){
+            <p class="validations mt-1">
+              @if(form.controls['email'].errors?.['required']){ This field is required. }
+              @if(form.controls['email'].errors?.['email']){ Enter your e-mail correctly. }
+            </p>
+          }
+        </div>
+
+        <div class="mb-3">
+          <input
+            type="password"
+            class="form-control custom-input"
+            placeholder="Password"
+            formControlName="password"
+          />
+          @if(form.controls['password'].touched && form.controls['password'].invalid){
+            <p class="validations mt-1">
+              @if(form.controls['password'].errors?.['required']){ This field is required. }
+              @if(form.controls['password'].errors?.['pattern']){ Only numbers are allowed. }
+              @if(form.controls['password'].errors?.['minlength']){ Minimum 5 numbers. }
+            </p>
+          }
+        </div>
+
+        @if(authService.newReg()){
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control custom-input"
+              placeholder="Username"
+              formControlName="username"
+            />
+            @if(form.controls['username'].touched && form.controls['username'].invalid){
+              <p class="validations mt-1">This field is required.</p>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="form-actions d-grid gap-2 mt-4">
+        @if(!authService.newReg()){
+          <button type="button" class="btn btn-warning main-btn" (click)="logIn()">Log In</button>
+          <button type="button" class="btn btn-outline-dark secondary-btn" (click)="authService.openRegRofm()">Sign Up</button>
+        } @else {
+          <button type="button" class="btn btn-warning main-btn" (click)="register()">Continue</button>
+        }
+      </div>
+
+      <footer class="form-footer mt-5">
+        <p class="fw-bold mb-1">Star Wars is part of The Walt Disney Family of Companies.</p>
+        <p class="text-muted small">
+          MyDisney lets you seamlessly log in to services across Disney+, ESPN, and more.
+        </p>
+      </footer>
+    </form>
+  </div>
 </div>
