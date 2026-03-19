@@ -1,10 +1,10 @@
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RegistrationComponent } from './registration.component';
 import { ToastrModule } from 'ngx-toastr';
 import { RouterTestingHarness} from '@angular/router/testing';
 import { HomeComponent } from '../home/home.component';
-import { provideRouter, Router, RouterLink, Routes } from '@angular/router';
-import { By } from '@angular/platform-browser';
+import { provideRouter } from '@angular/router';
+
 
 
 describe('RegistrationComponent', () => {
