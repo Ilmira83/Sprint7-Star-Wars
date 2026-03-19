@@ -1,4 +1,4 @@
-<header class="header">
+<!-- <header class="header">
   <nav class="social-nav">
     <ul class="social-list d-flex">
       <li class="tiktok-icon me-4">
@@ -147,6 +147,141 @@
   routerLinkActive="active"
   ariaCurrentWhenActive="page">
   Go to Starships
+  </a>
+</div>
+
+<router-outlet></router-outlet>
+ -->
+
+<header class="header d-flex align-items-center justify-content-between px-4 py-2">
+
+  <div class="header-left d-flex align-items-center">
+    <nav class="social-nav">
+      <ul class="social-list d-flex list-unstyled mb-0 gap-3">
+        <li>
+          <a href="https://www.tiktok.com/@starwars" target="_blank" aria-label="TikTok">
+            <i class="fab fa-tiktok text-white fs-5"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/starwars/" target="_blank" aria-label="Instagram">
+            <i class="fa-brands fa-instagram text-white fs-5"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/starwars" target="_blank" aria-label="Twitter/X">
+            <i class="fa-brands fa-x-twitter text-white fs-5"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://facebook.com/starwars" target="_blank" aria-label="Facebook">
+            <i class="fa-brands fa-facebook text-white fs-5"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="main-logo d-flex justify-content-center">
+    <a routerLink="/app-home" routerLinkActive="active">
+      <img src="assets/mainLogo.png" alt="Star Wars Logo"
+           class="img-fluid"
+           style="max-width: 150px;" />
+    </a>
+  </div>
+
+  <div class="header-right d-flex align-items-center justify-content-end gap-2">
+    <div class="search d-flex align-items-center">
+      @if(!searchInputActive) {
+        <button type="button" class="btn search-button text-white fs-6" (click)="showInput()">
+          <i class="fa fa-search me-1"></i>
+          <span class="d-none d-lg-inline">SEARCH</span>
+        </button>
+      }
+      @if(searchInputActive) {
+        <input type="text" class="form-control form-control-sm" style="max-width: 120px;" />
+        <button type="button" class="btn-close btn-sm bg-white ms-2" (click)="hideInput()"></button>
+      }
+    </div>
+
+    <div class="login-registration">
+      @if(!authService.loggedIn()) {
+        <button type="button"
+          class="btn login-button text-white fs-6"
+          routerLink="/app-registration">
+          <i class="fa fa-user me-1"></i>
+          <span class="d-none d-lg-inline">LOG IN</span>
+        </button>
+      }
+      @if(authService.loggedIn()) {
+        <button type="button" class="btn logout-btn text-white fs-6" (click)="authService.logOut()">
+          LOG OUT
+        </button>
+      }
+    </div>
+  </div>
+
+</header>
+
+<!-- Navigation -->
+<nav class="site-navigation">
+  <ul class="nav nav-underline justify-content-center 
+              border-top border-bottom border-light-subtle
+              pt-2 pt-md-4 pb-2 pb-md-4 gap-2 gap-md-4">
+    <li class="nav-item">
+      <a class="nav-link text-white fs-5"
+        routerLink="/app-home"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        style="font-family: 'Courier New', Courier, monospace">
+        HOME
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white fs-5"
+        routerLink="/app-starships"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        style="font-family: 'Courier New', Courier, monospace">
+        STARSHIPS
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Hero Section -->
+<div id="starwars" class="animate mt-3 mt-md-5">
+  <div class="d-flex justify-content-center px-3">
+    <div class="w-100" style="max-width: 900px;">
+      <video
+        class="w-100 rounded"
+        style="max-height: 550px; object-fit: cover;"
+        aria-label="Star Wars Starships battle Video"
+        autoplay loop muted
+        oncanplay="this.play()"
+        onloadedmetadata="this.muted = true"
+        poster="/assets/video/preview.mp4">
+        <source src="/assets/video/preview.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <img src="/assets/mainLogo.png"
+    class="logo"
+    alt="Star Wars Logo"
+    aria-label="Star Wars Logo" />
+
+  <p class="intro">
+    A long time ago, <br>
+    in a galaxy far, <br>
+    far away...
+  </p>
+
+  <a class="intro-link"
+    routerLink="/app-starships"
+    routerLinkActive="active"
+    ariaCurrentWhenActive="page">
+    Go to Starships
   </a>
 </div>
 
